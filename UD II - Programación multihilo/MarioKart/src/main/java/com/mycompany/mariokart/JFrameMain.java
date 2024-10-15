@@ -14,26 +14,39 @@ import java.util.logging.Logger;
  */
 public class JFrameMain extends javax.swing.JFrame {
     Coche cocheRojo;
+    Coche cocheVerde;
+    Coche cocheAzul;
+    Coche cocheAmarillo; 
+    
     /**
      * Creates new form JFrameMain
      */
     public JFrameMain() throws InterruptedException {
+        this.setLocationRelativeTo(null);
         initComponents();
-        Coche cocheRojo = new Coche(jProgressBar1);
-        Thread thread = new Thread(cocheRojo);
-        thread.start();
         
-        Coche cocheVerde = new Coche(jProgressBar2);
+        cocheRojo = new Coche(jProgressCocheRojo);
+        Thread thread1 = new Thread(cocheRojo);
+        thread1.start();
+        
+        cocheVerde = new Coche(jProgressCocheVerde);
         Thread thread2 = new Thread(cocheVerde);
         thread2.start();
         
-        Coche cocheAzul = new Coche(jProgressBar3);
+        cocheAzul = new Coche(jProgressCocheAmarillo);
         Thread thread3 = new Thread(cocheAzul);
         thread3.start();
         
-        Coche cocheYellow = new Coche(jProgressBar4);
-        Thread thread4 = new Thread(cocheYellow);
+        cocheAmarillo = new Coche(jProgressCocheAzul);
+        Thread thread4 = new Thread(cocheAmarillo);
         thread4.start();
+        
+        /*
+        thread1.join();
+        thread2.join();
+        thread2.join();
+        thread4.join();
+        */
     }
 
     /**
@@ -46,24 +59,26 @@ public class JFrameMain extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar4 = new javax.swing.JProgressBar();
+        jProgressCocheVerde = new javax.swing.JProgressBar();
+        jProgressCocheAzul = new javax.swing.JProgressBar();
+        jButtonDetenerCocheAzul = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jProgressCocheAmarillo = new javax.swing.JProgressBar();
+        jProgressCocheRojo = new javax.swing.JProgressBar();
+        jButtonDetenerCocheVerde = new javax.swing.JButton();
+        jButtonDetenerCocheRojo = new javax.swing.JButton();
+        jButtonDetenerCocheAmarillo = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jProgressBar3 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Stop");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDetenerCocheAzul.setText("Stop");
+        jButtonDetenerCocheAzul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonDetenerCocheAzulActionPerformed(evt);
             }
         });
-
-        jButton2.setText("Continue");
 
         jButton3.setText("Cambiar fondo");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -72,55 +87,97 @@ public class JFrameMain extends javax.swing.JFrame {
             }
         });
 
+        jButtonDetenerCocheVerde.setText("Stop");
+        jButtonDetenerCocheVerde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDetenerCocheVerdeActionPerformed(evt);
+            }
+        });
+
+        jButtonDetenerCocheRojo.setText("Stop");
+        jButtonDetenerCocheRojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDetenerCocheRojoActionPerformed(evt);
+            }
+        });
+
+        jButtonDetenerCocheAmarillo.setText("Stop");
+        jButtonDetenerCocheAmarillo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDetenerCocheAmarilloActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Caparazon azul");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Caparazon rojo");
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
-                    .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jButton3)
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton2))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jProgressCocheRojo, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jProgressCocheAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jProgressCocheAmarillo, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jProgressCocheVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonDetenerCocheAzul)
+                            .addComponent(jButtonDetenerCocheRojo)
+                            .addComponent(jButtonDetenerCocheVerde)
+                            .addComponent(jButtonDetenerCocheAmarillo))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(106, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonDetenerCocheRojo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jProgressCocheRojo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonDetenerCocheVerde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jProgressCocheVerde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonDetenerCocheAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jProgressCocheAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonDetenerCocheAmarillo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jProgressCocheAmarillo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jButton3)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,15 +187,42 @@ public class JFrameMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            cocheRojo.detenerCoche();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonDetenerCocheAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetenerCocheAzulActionPerformed
+            cocheAzul.detenerCoche();
+    }//GEN-LAST:event_jButtonDetenerCocheAzulActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
         Color nuevoColor = new Color((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256));
         mainPanel.setBackground(nuevoColor);
+        
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButtonDetenerCocheVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetenerCocheVerdeActionPerformed
+        // TODO add your handling code here:
+        cocheVerde.detenerCoche();
+    }//GEN-LAST:event_jButtonDetenerCocheVerdeActionPerformed
+
+    private void jButtonDetenerCocheRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetenerCocheRojoActionPerformed
+        // TODO add your handling code here:
+        cocheRojo.detenerCoche();
+    }//GEN-LAST:event_jButtonDetenerCocheRojoActionPerformed
+
+    private void jButtonDetenerCocheAmarilloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetenerCocheAmarilloActionPerformed
+        // TODO add your handling code here:
+        cocheAmarillo.detenerCoche();
+    }//GEN-LAST:event_jButtonDetenerCocheAmarilloActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        cocheRojo.mostrarPrimerLugar(jProgressCocheRojo, 
+                jProgressCocheVerde, 
+                jProgressCocheAzul, 
+                jProgressCocheAmarillo);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,10 +267,14 @@ public class JFrameMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
-    private javax.swing.JProgressBar jProgressBar3;
-    private javax.swing.JProgressBar jProgressBar4;
+    private javax.swing.JButton jButtonDetenerCocheAmarillo;
+    private javax.swing.JButton jButtonDetenerCocheAzul;
+    private javax.swing.JButton jButtonDetenerCocheRojo;
+    private javax.swing.JButton jButtonDetenerCocheVerde;
+    private javax.swing.JProgressBar jProgressCocheAmarillo;
+    private javax.swing.JProgressBar jProgressCocheAzul;
+    private javax.swing.JProgressBar jProgressCocheRojo;
+    private javax.swing.JProgressBar jProgressCocheVerde;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }
