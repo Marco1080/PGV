@@ -1,11 +1,9 @@
 package com.mycompany.mariokart;
 
-import java.awt.Color;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JProgressBar;
-import javax.swing.SwingUtilities;
 
 public class Coche implements Runnable {
     
@@ -13,7 +11,7 @@ public class Coche implements Runnable {
     String nombre;
     String color;
     boolean running = true;
-    //static Coche coche;
+    boolean amIRunning = true;
     static  boolean hasEnd = false;
     static int place = 1;
 
@@ -37,6 +35,10 @@ public class Coche implements Runnable {
                         Thread.sleep(5000);
                         running = true;
                     }
+                    else if (!amIRunning){
+                        Thread.sleep(3000);
+                        amIRunning = true;
+                    }
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Coche.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -57,4 +59,20 @@ public class Coche implements Runnable {
         running = false;
     }
     
+    public void lanzarCaparazonRojo(Coche[] lista) {
+        Random random = new Random();
+        int numeroAleatorio = random.nextInt(lista.length); 
+        lista[numeroAleatorio].amIRunning = false;
+        System.out.println(numeroAleatorio + " se ha detenido " + lista[numeroAleatorio].color);
+    }
+    
+    public void lanzarCaparazonAzul(Coche[] lista) {
+        Coche cocheMasRapido = lista[0];
+        for(int i = 0; i < lista.length;i++) {
+            if(cocheMasRapido.circuito.getValue() < lista[i].circuito.getValue()){
+                cocheMasRapido = lista[i];
+            }
+        }
+        cocheMasRapido.amIRunning = false;
+    }
 }

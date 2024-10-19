@@ -5,9 +5,10 @@
 package com.mycompany.mariokart;
 
 import java.awt.Color;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLabel;
+import java.util.Timer;
 
 /**
  *
@@ -25,6 +26,12 @@ public class JFrameMain extends javax.swing.JFrame {
     public JFrameMain() throws InterruptedException {
         this.setLocationRelativeTo(null);
         initComponents();
+        //jPanelCorredores.setBackground(new Color(0, 0, 0, 0));
+        jPanelAzul.setBackground(new Color(0, 0, 0, 0));
+        jPanelVerde.setBackground(new Color(0, 0, 0, 0));
+        jPanelAmarillo.setBackground(new Color(0, 0, 0, 0));
+        jPanelRojo.setBackground(new Color(0, 0, 0, 0));
+        jPanelBotones.setBackground(new Color(0, 0, 0, 0));
         
         cocheRojo = new Coche(jProgressCocheRojo, "rojo");
         Thread thread1 = new Thread(cocheRojo);
@@ -45,6 +52,7 @@ public class JFrameMain extends javax.swing.JFrame {
         gestor = new GestorFondo(mainPanel);
         Thread thread5 = new Thread(gestor);
         thread5.start();
+        
         /*
         thread1.join();
         thread2.join();
@@ -61,69 +69,136 @@ public class JFrameMain extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         mainPanel = new javax.swing.JPanel();
-        jProgressCocheVerde = new javax.swing.JProgressBar();
+        jPanelCorredores = new javax.swing.JPanel();
+        jPanelAzul = new javax.swing.JPanel();
+        jLabelAzul = new javax.swing.JLabel();
         jProgressCocheAzul = new javax.swing.JProgressBar();
         jButtonDetenerCocheAzul = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jProgressCocheAmarillo = new javax.swing.JProgressBar();
-        jProgressCocheRojo = new javax.swing.JProgressBar();
-        jButtonDetenerCocheVerde = new javax.swing.JButton();
-        jButtonDetenerCocheRojo = new javax.swing.JButton();
-        jButtonDetenerCocheAmarillo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jPanelVerde = new javax.swing.JPanel();
         jLabelVerde = new javax.swing.JLabel();
+        jProgressCocheVerde = new javax.swing.JProgressBar();
+        jButtonDetenerCocheVerde = new javax.swing.JButton();
+        jPanelAmarillo = new javax.swing.JPanel();
         jLabelAmarillo = new javax.swing.JLabel();
-        jLabelAzul = new javax.swing.JLabel();
+        jProgressCocheAmarillo = new javax.swing.JProgressBar();
+        jButtonDetenerCocheAmarillo = new javax.swing.JButton();
+        jPanelRojo = new javax.swing.JPanel();
         jLabelRojo = new javax.swing.JLabel();
+        jProgressCocheRojo = new javax.swing.JProgressBar();
+        jButtonDetenerCocheRojo = new javax.swing.JButton();
+        jPanelBotones = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jProgressCocheVerde.setForeground(new java.awt.Color(0, 204, 0));
+        jPanelCorredores.setLayout(new java.awt.GridBagLayout());
+
+        jLabelAzul.setText("Azul");
+        jPanelAzul.add(jLabelAzul);
 
         jProgressCocheAzul.setForeground(new java.awt.Color(102, 204, 255));
+        jPanelAzul.add(jProgressCocheAzul);
 
+        jButtonDetenerCocheAzul.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonDetenerCocheAzul.setForeground(new java.awt.Color(0, 0, 0));
         jButtonDetenerCocheAzul.setText("Stop");
+        jButtonDetenerCocheAzul.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonDetenerCocheAzul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDetenerCocheAzulActionPerformed(evt);
             }
         });
+        jPanelAzul.add(jButtonDetenerCocheAzul);
 
-        jButton3.setText("Detener fondo");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 138;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 28, 0, 12);
+        jPanelCorredores.add(jPanelAzul, gridBagConstraints);
 
-        jProgressCocheAmarillo.setForeground(new java.awt.Color(255, 255, 102));
+        jLabelVerde.setText("Verde");
+        jPanelVerde.add(jLabelVerde);
 
-        jProgressCocheRojo.setForeground(new java.awt.Color(255, 102, 102));
+        jProgressCocheVerde.setForeground(new java.awt.Color(0, 204, 0));
+        jPanelVerde.add(jProgressCocheVerde);
 
+        jButtonDetenerCocheVerde.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonDetenerCocheVerde.setForeground(new java.awt.Color(0, 0, 0));
         jButtonDetenerCocheVerde.setText("Stop");
+        jButtonDetenerCocheVerde.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonDetenerCocheVerde.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDetenerCocheVerdeActionPerformed(evt);
             }
         });
+        jPanelVerde.add(jButtonDetenerCocheVerde);
 
-        jButtonDetenerCocheRojo.setText("Stop");
-        jButtonDetenerCocheRojo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDetenerCocheRojoActionPerformed(evt);
-            }
-        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 138;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 0, 12);
+        jPanelCorredores.add(jPanelVerde, gridBagConstraints);
 
+        jLabelAmarillo.setText("Amarillo");
+        jPanelAmarillo.add(jLabelAmarillo);
+
+        jProgressCocheAmarillo.setForeground(new java.awt.Color(255, 255, 102));
+        jPanelAmarillo.add(jProgressCocheAmarillo);
+
+        jButtonDetenerCocheAmarillo.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonDetenerCocheAmarillo.setForeground(new java.awt.Color(0, 0, 0));
         jButtonDetenerCocheAmarillo.setText("Stop");
+        jButtonDetenerCocheAmarillo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonDetenerCocheAmarillo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDetenerCocheAmarilloActionPerformed(evt);
             }
         });
+        jPanelAmarillo.add(jButtonDetenerCocheAmarillo);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 138;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 12, 0, 12);
+        jPanelCorredores.add(jPanelAmarillo, gridBagConstraints);
+
+        jLabelRojo.setText("Rojo");
+        jPanelRojo.add(jLabelRojo);
+
+        jProgressCocheRojo.setForeground(new java.awt.Color(255, 102, 102));
+        jPanelRojo.add(jProgressCocheRojo);
+
+        jButtonDetenerCocheRojo.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonDetenerCocheRojo.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonDetenerCocheRojo.setText("Stop");
+        jButtonDetenerCocheRojo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonDetenerCocheRojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDetenerCocheRojoActionPerformed(evt);
+            }
+        });
+        jPanelRojo.add(jButtonDetenerCocheRojo);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 138;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 29, 12, 12);
+        jPanelCorredores.add(jPanelRojo, gridBagConstraints);
 
         jButton1.setText("Caparazon azul");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -131,119 +206,75 @@ public class JFrameMain extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanelBotones.add(jButton1);
+
+        jButton3.setText("Parar fondo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanelBotones.add(jButton3);
 
         jButton2.setText("Caparazon rojo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanelBotones.add(jButton2);
 
-        jLabel1.setText("PUESTO");
-
-        jLabelVerde.setText("Verde");
-
-        jLabelAmarillo.setText("Amarillo");
-
-        jLabelAzul.setText("Azul");
-
-        jLabelRojo.setText("Rojo");
+        jLabel2.setFont(new java.awt.Font("Lucida Console", 3, 11)); // NOI18N
+        jLabel2.setText("MARIO KART");
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelBotones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelCorredores, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(27, 27, 27)
-                .addComponent(jButton2)
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelVerde)
-                            .addComponent(jLabelAmarillo)
-                            .addComponent(jLabelAzul)
-                            .addComponent(jLabelRojo))
-                        .addGap(24, 24, 24)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jProgressCocheVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jProgressCocheRojo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jProgressCocheAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jProgressCocheAmarillo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonDetenerCocheAzul)
-                            .addComponent(jButtonDetenerCocheVerde)
-                            .addComponent(jButtonDetenerCocheAmarillo)
-                            .addComponent(jButtonDetenerCocheRojo)))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel1)))
+                .addGap(126, 126, 126)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jProgressCocheVerde, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelVerde, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonDetenerCocheVerde)))
-                .addGap(9, 9, Short.MAX_VALUE)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonDetenerCocheAzul)
-                    .addComponent(jProgressCocheAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAzul))
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                                .addComponent(jProgressCocheAmarillo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                                .addComponent(jLabelAmarillo)
-                                .addGap(5, 5, 5)))
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jProgressCocheRojo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelRojo)))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(jButtonDetenerCocheAmarillo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonDetenerCocheRojo)))
-                .addGap(28, 28, 28)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(52, 52, 52))
+                .addComponent(jPanelCorredores, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanelBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(mainPanel, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonDetenerCocheAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetenerCocheAzulActionPerformed
-            cocheAzul.detenerCoche();
+  
+        cocheAzul.detenerCoche();
+        jButtonDetenerCocheAzul.setEnabled(false);
+        Timer timer = new Timer();
+        TimerTask habilitarBotonTask = new TimerTask() {
+            @Override
+            public void run() {
+                jButtonDetenerCocheAzul.setEnabled(true);
+            }
+        };
+
+        timer.schedule(habilitarBotonTask, 3000);
+    
     }//GEN-LAST:event_jButtonDetenerCocheAzulActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -253,23 +284,61 @@ public class JFrameMain extends javax.swing.JFrame {
     private void jButtonDetenerCocheVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetenerCocheVerdeActionPerformed
         // TODO add your handling code here:
         cocheVerde.detenerCoche();
+        jButtonDetenerCocheVerde.setEnabled(false);
+        Timer timer = new Timer();
+        TimerTask habilitarBotonTask = new TimerTask() {
+            @Override
+            public void run() {
+                jButtonDetenerCocheVerde.setEnabled(true);
+            }
+        };
+        timer.schedule(habilitarBotonTask, 3000);
     }//GEN-LAST:event_jButtonDetenerCocheVerdeActionPerformed
 
     private void jButtonDetenerCocheRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetenerCocheRojoActionPerformed
         // TODO add your handling code here:
         cocheRojo.detenerCoche();
+        
+        jButtonDetenerCocheRojo.setEnabled(false);
+        Timer timer = new Timer();
+        TimerTask habilitarBotonTask = new TimerTask() {
+            @Override
+            public void run() {
+                jButtonDetenerCocheRojo.setEnabled(true);
+            }
+        };
+        timer.schedule(habilitarBotonTask, 3000);
     }//GEN-LAST:event_jButtonDetenerCocheRojoActionPerformed
 
     private void jButtonDetenerCocheAmarilloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetenerCocheAmarilloActionPerformed
         // TODO add your handling code here:
         cocheAmarillo.detenerCoche();
+        
+        
+        jButtonDetenerCocheAmarillo.setEnabled(false);
+        Timer timer = new Timer();
+        TimerTask habilitarBotonTask = new TimerTask() {
+            @Override
+            public void run() {
+                jButtonDetenerCocheAmarillo.setEnabled(true);
+            }
+        };
+        timer.schedule(habilitarBotonTask, 3000);
+        
     }//GEN-LAST:event_jButtonDetenerCocheAmarilloActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
+        Coche[] listaCoches =  {cocheRojo, cocheVerde, cocheAzul, cocheAmarillo};
+        cocheAmarillo.lanzarCaparazonAzul(listaCoches);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        Coche[] listaCoches =  {cocheRojo, cocheVerde, cocheAzul, cocheAmarillo};
+        cocheAmarillo.lanzarCaparazonRojo(listaCoches);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -314,11 +383,17 @@ public class JFrameMain extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDetenerCocheAzul;
     private javax.swing.JButton jButtonDetenerCocheRojo;
     private javax.swing.JButton jButtonDetenerCocheVerde;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private static javax.swing.JLabel jLabelAmarillo;
     private static javax.swing.JLabel jLabelAzul;
     private static javax.swing.JLabel jLabelRojo;
     private static javax.swing.JLabel jLabelVerde;
+    private javax.swing.JPanel jPanelAmarillo;
+    private javax.swing.JPanel jPanelAzul;
+    private javax.swing.JPanel jPanelBotones;
+    private javax.swing.JPanel jPanelCorredores;
+    private javax.swing.JPanel jPanelRojo;
+    private javax.swing.JPanel jPanelVerde;
     private javax.swing.JProgressBar jProgressCocheAmarillo;
     private javax.swing.JProgressBar jProgressCocheAzul;
     private javax.swing.JProgressBar jProgressCocheRojo;
